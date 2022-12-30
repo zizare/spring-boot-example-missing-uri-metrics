@@ -19,14 +19,13 @@ public class ExampleController {
 	}
 
 	@GetMapping("/hello")
-	public String hello(@RequestParam String myParam) {
-		return "My Param :" + myParam;
+	public String hello() {
+		return "Hello";
 	}
 
 	@GetMapping("/rest-template/hello")
-	public String helloViaRestTemplate(@RequestParam String myParam) {
+	public String helloViaRestTemplate() {
 		URI uri = UriComponentsBuilder.fromUri(restTemplate.getUriTemplateHandler().expand("/hello"))
-			.queryParam("myParam", myParam)
 			.build()
 			.toUri();
 
